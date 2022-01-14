@@ -25,7 +25,7 @@ namespace ZHD_Manager
                 }
                 db.PersonList.Add(new PersonInfo { ID = 0, Login = "root", Password = "root" });
                 db.SaveChanges();
-                //Filler.FillDB(db);
+                Filler.FillDB(db);
             }
         }
 
