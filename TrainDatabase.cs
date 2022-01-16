@@ -26,22 +26,24 @@ namespace ZHD_Manager
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder
-            //    .Entity<StationInfo>()
-            //    .HasMany(station => station.DepartingTrains)
-            //    .WithOne(train => train.StationOfDeparture);
-            //modelBuilder
-            //    .Entity<StationInfo>()
-            //    .HasMany(station => station.ArrivingTrains)
-            //    .WithOne(train => train.StationOfArrival);
             modelBuilder
-                .Entity<TrainInfo>()
-                .HasOne(train => train.StationOfDeparture)
-                .WithMany(station => station.DepartingTrains);
+                .Entity<StationInfo>()
+                .HasMany(station => station.DepartingTrains)
+                .WithOne(train => train.StationOfDeparture)
+                .OnDelete(DeleteBehavior.Cascade);
             modelBuilder
-                .Entity<TrainInfo>()
-                .HasOne(train => train.StationOfArrival)
-                .WithMany(station => station.ArrivingTrains);
+                .Entity<StationInfo>()
+                .HasMany(station => station.ArrivingTrains)
+                .WithOne(train => train.StationOfArrival)
+                .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder
+            //    .Entity<TrainInfo>()
+            //    .HasOne(train => train.StationOfDeparture)
+            //    .WithMany(station => station.DepartingTrains);
+            //modelBuilder
+            //    .Entity<TrainInfo>()
+            //    .HasOne(train => train.StationOfArrival)
+            //    .WithMany(station => station.ArrivingTrains);
             modelBuilder
                 .Entity<TrainInfo>()
                 .HasMany(train => train.Wagons)
@@ -52,8 +54,6 @@ namespace ZHD_Manager
                 .HasMany(wagon => wagon.Places)
                 .WithOne()
                 .OnDelete(DeleteBehavior.Cascade);
-            //modelBuilder.Entity<StationDepartingTrains>().HasKey(SAT => new { SAT.StationID, SAT.TrainID });
-            //modelBuilder.Entity<TrainContainWagons>().HasKey(SAT => new { SAT.TrainID, SAT.WagonID });
         }
     }
 

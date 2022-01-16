@@ -24,6 +24,8 @@ namespace ZHD_Manager
 
         private void UpdateStations()
         {
+            this.comboBox1.Items.Clear();
+            this.comboBox2.Items.Clear();
             this.comboBox1.Items.AddRange(db.Stations.Select(station => station.Name).ToArray());
             this.comboBox2.Items.AddRange(db.Stations.Select(station => station.Name).ToArray());
             this.comboBox1.SelectedIndex = 0;
@@ -213,6 +215,15 @@ namespace ZHD_Manager
         {
             PersonEditor personEditor = new PersonEditor(db);
             personEditor.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            StationEditor stationEditor = new StationEditor(db);
+            stationEditor.ShowDialog();
+            UpdateStations();
+            UpdateShownTrains();
+            UpdateGrid();
         }
     }
 }

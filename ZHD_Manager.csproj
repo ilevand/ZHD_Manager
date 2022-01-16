@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="StationCreateScreen.resx~RF64c27e.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.13">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -20,7 +24,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="StationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="StationCreateScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="PersonCreateScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StationEditor.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

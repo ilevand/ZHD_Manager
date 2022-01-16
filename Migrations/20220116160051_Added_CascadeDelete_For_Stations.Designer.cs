@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ZHD_Manager;
 
 namespace ZHD_Manager.Migrations
 {
     [DbContext(typeof(TrainDatabase))]
-    partial class TrainDatabaseModelSnapshot : ModelSnapshot
+    [Migration("20220116160051_Added_CascadeDelete_For_Stations")]
+    partial class Added_CascadeDelete_For_Stations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

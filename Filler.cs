@@ -25,8 +25,6 @@ namespace ZHD_Manager
         public static void FillDB(TrainDatabase train_db)
         {
             //train_db.PersonList.RemoveRange(train_db.PersonList);
-            train_db.Trains.RemoveRange(train_db.Trains);
-            train_db.SaveChanges();
             train_db.Stations.RemoveRange(train_db.Stations);
             train_db.SaveChanges();
             FillStations(train_db);
@@ -43,7 +41,7 @@ namespace ZHD_Manager
         private static void FillTrains(TrainDatabase train_db)
         {
             Random rand = new Random();
-            foreach (var i in Enumerable.Range(0, 50))
+            foreach (var i in Enumerable.Range(0, 200))
             {
                 var first_station = stations[rand.Next(stations.Count())];
                 var second_station = stations[rand.Next(stations.Count())];
